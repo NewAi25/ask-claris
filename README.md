@@ -1,6 +1,6 @@
 # Ask Claris
 
-**A plain-English question tool for AI model governance.** A compliance officer, data scientist or business user asks a question about a set of machine-learning risk models, for example *"Why was this customer flagged?"*, *"Is the model fair across segments?"* or *"How did performance change month by month?"*, and gets a grounded answer card, chart and table.
+**An AI chatbot for ML model governance.** A compliance officer, data scientist or business user asks it questions in plain English about a set of machine-learning risk models, for example *"Why was this customer flagged?"*, *"Is the model fair across segments?"* or *"How did performance change month by month?"*, and gets a grounded answer card, chart and table.
 
 **Every number on screen comes from an executed SQL query. The LLM never makes up a number.**
 
