@@ -1,0 +1,82 @@
+== Header verification ==
+  ok: Part_A/Data/Data.csv (186 cols)
+  ok: XAI/Client_Input/Common/dev_scored.csv (284 cols)
+  ok: Part_A/Data/variable_dictionary.csv (10 cols)
+  ok: Part_A/Data/customer_master.csv (18 cols)
+  ok: Part_A/Data/consent_log.csv (8 cols)
+  ok: Part_A/Model_Outputs/Model2_XGBoost/feature_importance.csv (3 cols)
+  ok: Part_A/Model_Outputs/Model3_RandomForest/feature_importance.csv (3 cols)
+  ok: Part_A/Model_Outputs/Model4_Autoencoder/feature_importance.csv (5 cols)
+  ok: RAI/outputs/fairness_metrics_summary.csv (7 cols)
+  ok: RAI/outputs/segment_fairness_metrics_summary.csv (9 cols)
+  ok: RAI/outputs/disparate_impact_summary.csv (8 cols)
+  ok: RAI/outputs/llm_rai_reports/llm_rai_xai_consolidated.csv (4 cols)
+  ok: Part_A/Modeling_Data/split_summary.csv (7 cols)
+== core.models / core.model_versions ==
+  models: 3 (champion=m4_autoencoder)
+== core.features (semantic glossary) ==
+  features: 277
+== core.feature_importance_global ==
+  m2_xgboost (gain): 271 features
+  m3_rf (mda): 271 features
+  m4_autoencoder (recon_error_gap): 271 features
+== privacy.customer_master ==
+== privacy.consent_log ==
+== privacy.segment_master / activeness_segment_definitions ==
+  segments: 10 / activeness tiers: 6
+== core.cases (scored population, dev) ==
+== core.client_features (canonical Data.csv) ==
+== core.local_explanations (surrogate contribs, Autoencoder only) ==
+  dev: 20000 sample rows, client_id recovered for 19421 (97.1%)
+  validation_oos: 20000 sample rows, client_id recovered for 0 (0.0%) — no scored source for validation; recovery not attempted
+  long-format rows: 10,840,000
+== core.fairness_metrics / core.disparate_impact ==
+  fairness rows: 225 (NULL values preserved: 65); disparate-impact rows: 36, alerts: 0
+== core.performance_metrics ==
+  performance rows: 270
+== core.rai_narratives / core.rai_documents ==
+  narratives: 30
+== lineage ==
+  splits: 6 | feature lineage edges: 533
+== vec.nlq_training ==
+  seed questions: 10
+== lineage.data_quality / row-count assertions ==
+  [ok] Part_A/Data/Data.csv: physical line count == 150340 (incl. header) = 150340
+  [ok] core.client_features: loaded data rows == 150339 = 150339
+  [ok] XAI/Client_Input/Common/dev_scored.csv: physical line count == 93481 (incl. header) = 93481
+  [ok] core.cases: loaded data rows == 93480 = 93480
+  [ok] Part_A/Data/consent_log.csv: physical line count == 429213 (incl. header) = 429213
+  [ok] privacy.consent_log: loaded data rows == 429212 = 429212
+  [ok] Part_A/Data/customer_master.csv: physical line count == 150340 (incl. header) = 150340
+  [ok] privacy.customer_master: loaded data rows == 150339 = 150339
+  [ok] privacy.customer_master: duplicate client_id = 0
+  [ok] core.cases: duplicate client_id among non-disputes = 0
+  [ok] core.cases: distinct clients == 91,635 (pre-oversampling train rows) = 91635
+  [ok] core.features: glossary entries = 277
+  [ok] core.cases: clients missing from customer_master = 0
+  [ok] privacy.consent_log: NULL client_id rows = 0
+  [ok] core.local_explanations: client_id recovery rate (dev) = 19421/20000 (97.1%)
+  [ok] core.local_explanations: client_id recovery rate (validation_oos) = 0/20000 (0.0%)
+== Load report (rows per table) ==
+  core.cases                                          93,480
+  core.client_features                               150,339
+  core.disparate_impact                                   36
+  core.fairness_metrics                                  225
+  core.feature_importance_global                         813
+  core.features                                          277
+  core.local_explanations                         10,840,000
+  core.model_versions                                      3
+  core.models                                              3
+  core.performance_metrics                               270
+  core.rai_documents                                       1
+  core.rai_narratives                                     30
+  lineage.data_quality                                    16
+  lineage.data_splits                                      6
+  lineage.feature_lineage                                533
+  ops.query_audit                                          0
+  ops.query_history                                        0
+  privacy.activeness_segment_definitions                   6
+  privacy.consent_log                                429,212
+  privacy.customer_master                            150,339
+  privacy.segment_master                                  10
+  vec.nlq_training                                        10
